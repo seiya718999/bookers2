@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'sidebar', book: @book, user: @user %>
+    </div>
+
+
+
+
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover table-inverse">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@user.id) do %>
+                <%= image_tag @abook.user.get_profile_image(100,100) %><br>
+                <%= @user.name %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@abook.id) do %>
+                <%= @abook.title %>
+              <% end %>
+            </td>
+            <td>
+              <%= @abook.body %>
+            </td>
+            <td>
+              <%= link_to edit_book_path(@abook.id), class: 'btn btn-sm btn-success' do %>
+                Edit
+              <% end %>
+            </td>
+            <td>
+              <%= link_to book_path(@abook.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
+                Destroy
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
