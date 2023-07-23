@@ -1,3 +1,5 @@
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">
@@ -26,21 +28,21 @@
             <td>
               <%= @abook.body %>
             </td>
-            <td>
-              <%= link_to edit_book_path(@abook.id), class: 'btn btn-sm btn-success' do %>
-                Edit
-              <% end %>
-            </td>
-            <td>
-              <%= link_to book_path(@abook.id), method: :delete, class: 'btn btn-sm btn-danger' do %>
-                Destroy
-              <% end %>
-            </td>
+            
+              <td>
+                <% if @abook.user == current_user %>
+                  <%= link_to "Edit", edit_book_path(@abook), class: 'btn btn-sm btn-success'  %>
+                <% end %>
+              </td>
+              <td>
+                <% if @abook.user == current_user %>
+                  <%= link_to "Destroy", book_path(@abook), method: :delete, class: 'btn btn-sm btn-danger'  %>
+                <% end %>
+              </td>
+              
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
-
-
